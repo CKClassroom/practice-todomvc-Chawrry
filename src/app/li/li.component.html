@@ -3,7 +3,7 @@
 <li *ngFor="let todo of (todos | filterPipe: filterSelected); let idx = index" [class.completed]="todo.isComplete" [class.editing]="todo.isEdit">
     <div class="view">
         <input class="toggle" type="checkbox" [checked]="todo.isComplete" (click)="targetToggle(todo)">
-        <label (dblclick)="todo.isComplete? todo.isEdit = false : todo.isEdit = true">{{ todo.name }}</label>
+        <label (dblclick)="dbClick(todo)">{{ todo.name }}</label>
         <button class="destroy" (click)="removeTodo(todo)"></button>
     </div>
     <input class="edit" [(ngModel)]="todo.name" (blur)="blurEdit(todo)">

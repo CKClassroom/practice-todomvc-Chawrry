@@ -9,9 +9,7 @@ import { Todo } from '../app.component';
 export class LiComponent implements OnInit {
   @Input() filterSelected: string;
   @Input() todos: Todo[];
-  @Output() todoEdit = new EventEmitter<Todo[]>();
-  @Output() todoDestroy = new EventEmitter<Todo[]>();
-  @Output() todoTarget = new EventEmitter<Todo[]>();
+
   constructor() { }
 
   ngOnInit() {
@@ -25,18 +23,23 @@ export class LiComponent implements OnInit {
       }
       return _todo;
     });
-    this.todoTarget.emit(this.todos);
+  }
+
+  dbClick(todo: Todo) {
+    if (todo.isComplete) {
+      todo.isEdit = false;
+    } else {
+      todo.isEdit = true;
+    }
   }
 
   blurEdit(todo: Todo) {
     console.log(todo.name);
     todo.isEdit = false;
-    this.todoEdit.emit(this.todos);
   }
 
   removeTodo(todo: Todo) {
-    this.todos = this.todos.filter( _todo => _todo.id != todo.id);
-    this.todoDestroy.emit(this.todos);
+    this.todos = this.todos.filter( _todo =>  _todo.id !== todo.id);
   }
 
 }
