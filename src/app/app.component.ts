@@ -19,10 +19,6 @@ export class AppComponent {
   todos: Todo[] = [];
   maxid = 0;
 
-  checkAll() {
-    this.todos.forEach( x => x.isComplete = !x.isComplete );
-  }
-
   addTodo(newTodo: string) {
     this.todos.push({
       id: ++this.maxid,

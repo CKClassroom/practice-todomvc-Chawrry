@@ -2,17 +2,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../app.component';
 
 @Component({
-  selector: 'app-li',
-  templateUrl: './li.component.html',
-  styleUrls: ['./li.component.css']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
-export class LiComponent implements OnInit {
+export class ListComponent implements OnInit {
   @Input() filterSelected: string;
   @Input() todos: Todo[];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  checkAll() {
+    this.todos.forEach( x => x.isComplete = !x.isComplete );
   }
 
   targetToggle(todo: Todo) {

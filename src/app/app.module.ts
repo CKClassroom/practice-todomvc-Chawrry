@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FilterComponent } from './filter/filter.component';
-import { LiComponent } from './li/li.component';
 import { FilterPipePipe } from './filter-pipe.pipe';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +14,8 @@ import { FilterPipePipe } from './filter-pipe.pipe';
     HeaderComponent,
     FooterComponent,
     FilterComponent,
-    LiComponent,
-    FilterPipePipe
+    FilterPipePipe,
+    ListComponent
   ],
   imports: [
     BrowserModule,
